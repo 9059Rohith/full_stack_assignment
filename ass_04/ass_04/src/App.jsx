@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Display from './components/Display';
 import ButtonGrid from './components/ButtonGrid';
+import './App.css';
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -47,109 +48,6 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Inter', -apple-system, sans-serif;
-        }
-
-        .wrapper {
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: radial-gradient(circle at center, #0a2f26 0%, #010a08 100%);
-          overflow: hidden;
-        }
-
-        .glass-calculator {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          width: 360px;
-          padding: 32px;
-          border-radius: 40px;
-          box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-        }
-
-        .display {
-          text-align: right;
-          padding: 20px 10px;
-          margin-bottom: 20px;
-        }
-
-        .history {
-          color: rgba(52, 211, 153, 0.4);
-          font-size: 1rem;
-          min-height: 1.2rem;
-          margin-bottom: 10px;
-          letter-spacing: 1px;
-        }
-
-        .current {
-          color: #ffffff;
-          font-size: 3.5rem;
-          font-weight: 200;
-          letter-spacing: -1px;
-        }
-
-        .button-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 12px;
-        }
-
-        .btn-clear, .btn-delete {
-          grid-column: span 2;
-        }
-
-        .btn {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(52, 211, 153, 0.15);
-          border-radius: 16px;
-          color: #ffffff;
-          font-size: 1.5rem;
-          padding: 20px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .btn:hover {
-          background: rgba(52, 211, 153, 0.1);
-          transform: translateY(-2px);
-        }
-
-        .btn:active {
-          transform: scale(0.95);
-        }
-
-        .btn-operator {
-          background: rgba(52, 211, 153, 0.15);
-          color: #34d399;
-          font-weight: bold;
-        }
-
-        .btn-equals {
-          background: linear-gradient(135deg, #34d399, #10b981);
-          color: white;
-          font-weight: bold;
-        }
-
-        .btn-clear {
-          background: rgba(239, 68, 68, 0.15);
-          color: #ef4444;
-        }
-
-        .btn-delete {
-          background: rgba(251, 191, 36, 0.15);
-          color: #fbbf24;
-        }
-      `}</style>
-
       <div className="glass-calculator">
         <Display history={input} current={result} />
         <ButtonGrid 
@@ -158,72 +56,6 @@ const App = () => {
           clear={clear}
           deleteLast={deleteLast}
         />
-      </div>
-    </div>
-  );
-};
-
-export default App;
-
-        .btn-ac {
-          background: rgba(255, 95, 82, 0.1);
-          color: #ff5f52;
-          font-weight: 700;
-        }
-
-        .btn-op {
-          background: rgba(52, 211, 153, 0.1);
-          color: #34d399;
-          font-size: 1.5rem;
-        }
-
-        .btn-equals {
-          background: #10b981;
-          color: #052e21;
-          font-weight: 800;
-          box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-equals:hover {
-          background: #34d399;
-        }
-      `}</style>
-
-      <div className="glass-calculator">
-        <div className="display">
-          <div className="history">{input || "0"}</div>
-          <div className="current">{result}</div>
-        </div>
-
-        <div className="buttons-grid">
-          {/* Row 1 */}
-          <button className="span-2 btn-ac" onClick={clear}>AC</button>
-          <button className="btn-op" onClick={deleteLast}>⌫</button>
-          <button className="btn-op" onClick={() => updateCalc('/')}>÷</button>
-
-          {/* Row 2 */}
-          <button onClick={() => updateCalc('7')}>7</button>
-          <button onClick={() => updateCalc('8')}>8</button>
-          <button onClick={() => updateCalc('9')}>9</button>
-          <button className="btn-op" onClick={() => updateCalc('*')}>×</button>
-
-          {/* Row 3 */}
-          <button onClick={() => updateCalc('4')}>4</button>
-          <button onClick={() => updateCalc('5')}>5</button>
-          <button onClick={() => updateCalc('6')}>6</button>
-          <button className="btn-op" onClick={() => updateCalc('-')}>-</button>
-
-          {/* Row 4 */}
-          <button onClick={() => updateCalc('1')}>1</button>
-          <button onClick={() => updateCalc('2')}>2</button>
-          <button onClick={() => updateCalc('3')}>3</button>
-          <button className="btn-op" onClick={() => updateCalc('+')}>+</button>
-
-          {/* Row 5 */}
-          <button className="span-2" onClick={() => updateCalc('0')}>0</button>
-          <button onClick={() => updateCalc('.')}>.</button>
-          <button className="btn-equals" onClick={calculate}>=</button>
-        </div>
       </div>
     </div>
   );

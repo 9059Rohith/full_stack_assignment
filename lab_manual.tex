@@ -141,7 +141,10 @@ To implement a ReactJS application that performs the following operations:
 \begin{tabular}{|p{5cm}|p{9cm}|}
 \hline
 \textbf{FileName} & \textbf{Purpose} \\ \hline
-src/App.jsx & Main React component with factorial, fibonacci, and prime number checking logic \\ \hline
+src/App.jsx & Main component that manages state and renders child components \\ \hline
+src/components/Factorial.jsx & Component for factorial calculation with input and display \\ \hline
+src/components/Fibonacci.jsx & Component for generating Fibonacci series \\ \hline
+src/components/PrimeChecker.jsx & Component for checking if a number is prime \\ \hline
 src/App.css & Modern styling with tabs/sections for different mathematical operations \\ \hline
 src/main.jsx & Entry point of the React application \\ \hline
 vite.config.js & Vite configuration file for build and development \\ \hline
@@ -156,11 +159,13 @@ package.json & Project dependencies and scripts configuration \\ \hline
 \begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
 \hline
 \textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
-React Hooks (useState) & Managing state for input numbers and calculation results & App.jsx \\ \hline
-Recursive Functions & Calculating factorial using recursion & App.jsx \\ \hline
-Loop Iterations & Generating Fibonacci series & App.jsx \\ \hline
-Prime Number Algorithm & Checking divisibility for prime detection & App.jsx \\ \hline
-Conditional Rendering & Displaying results based on operation selected & App.jsx \\ \hline
+Component Composition & Breaking application into reusable components & App.jsx \\ \hline
+React Hooks (useState) & Managing state for input numbers and calculation results & Components \\ \hline
+Props Passing & Sharing data between parent and child components & All Components \\ \hline
+Recursive Functions & Calculating factorial using recursion & Factorial.jsx \\ \hline
+Loop Iterations & Generating Fibonacci series & Fibonacci.jsx \\ \hline
+Prime Number Algorithm & Checking divisibility for prime detection & PrimeChecker.jsx \\ \hline
+Conditional Rendering & Displaying results based on operation selected & All Components \\ \hline
 CSS Grid/Flexbox & Multi-section responsive layout & App.css \\ \hline
 \end{tabular}
 \end{table}
@@ -208,7 +213,7 @@ The application implements three mathematical operations in a single React compo
 \subsection{OUTPUT}
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.8\textwidth]{example-image-a}}
+    \fbox{\includegraphics[width=0.8\textwidth]{ass_01.png}}
     \caption{Mathematical Operations Application - Factorial, Fibonacci, Prime}
 \end{figure}
 
@@ -242,7 +247,9 @@ To create a ReactJS application that reads a number from the user and calculates
 \begin{tabular}{|p{5cm}|p{9cm}|}
 \hline
 \textbf{FileName} & \textbf{Purpose} \\ \hline
-src/App.jsx & Main component with digit sum calculation logic and UI \\ \hline
+src/App.jsx & Main component managing calculator state and logic \\ \hline
+src/components/InputSection.jsx & Component for number input with validation \\ \hline
+src/components/ResultDisplay.jsx & Component to display sum and digit breakdown \\ \hline
 src/App.css & Styling for the sum of digits calculator with modern design \\ \hline
 src/main.jsx & React application entry point with root rendering \\ \hline
 vite.config.js & Vite configuration for development and production \\ \hline
@@ -287,7 +294,7 @@ The application takes a number as input and calculates the sum of all its digits
 \subsection{OUTPUT}
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.8\textwidth]{example-image-b}}
+    \fbox{\includegraphics[width=0.8\textwidth]{ass_02.png}}
     \caption{Sum of Digits Calculator Application}
 \end{figure}
 
@@ -406,7 +413,7 @@ The UI is built with Tailwind CSS for responsive design and includes professiona
 \subsection{OUTPUT}
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.9\textwidth]{example-image-c}}
+    \fbox{\includegraphics[width=0.9\textwidth]{ass_03.png}}
     \caption{Employee Tax Calculator - Main Interface}
 \end{figure}
 
@@ -443,8 +450,10 @@ To implement a Calculator Program using ReactJS that performs basic arithmetic o
 \begin{tabular}{|p{5cm}|p{9cm}|}
 \hline
 \textbf{FileName} & \textbf{Purpose} \\ \hline
-src/App.jsx & Main component with calculator logic and operations handling \\ \hline
-src/App.css & Modern calculator styling with button grid and display screen \\ \hline
+src/App.jsx & Main component managing calculator state and operations logic \\ \hline
+src/components/Display.jsx & Component for displaying calculator history and current value \\ \hline
+src/components/ButtonGrid.jsx & Component containing all calculator buttons with grid layout \\ \hline
+src/App.css & Modern calculator styling with glassmorphism effects \\ \hline
 src/main.jsx & React application bootstrap and rendering \\ \hline
 vite.config.js & Build configuration for Vite bundler \\ \hline
 package.json & Project metadata and dependencies \\ \hline
@@ -459,12 +468,15 @@ index.html & Root HTML file with app container \\ \hline
 \begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
 \hline
 \textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+Component Composition & Separating display and button logic into components & App.jsx \\ \hline
 React useState Hook & Managing calculator display and operation state & App.jsx \\ \hline
-Event Handlers & Handling button clicks for numbers and operations & App.jsx \\ \hline
+Props & Passing functions and data to child components & App.jsx, Components \\ \hline
+Event Handlers & Handling button clicks for numbers and operations & ButtonGrid.jsx \\ \hline
 Arithmetic Operations & Performing +, -, ×, ÷ calculations & App.jsx \\ \hline
-eval() or Custom Parser & Evaluating mathematical expressions & App.jsx \\ \hline
-Conditional Rendering & Displaying results and handling errors & App.jsx \\ \hline
+eval() Function & Evaluating mathematical expressions & App.jsx \\ \hline
+Conditional Rendering & Displaying results and handling errors & Display.jsx \\ \hline
 CSS Grid Layout & Creating calculator button layout & App.css \\ \hline
+Glassmorphism Design & Modern UI with backdrop blur effects & App.css \\ \hline
 Error Handling & Managing division by zero and invalid operations & App.jsx \\ \hline
 \end{tabular}
 \end{table}
@@ -503,12 +515,21 @@ Error Handling & Managing division by zero and invalid operations & App.jsx \\ \
 \end{itemize}
 
 \subsection{CODE EXPLANATION}
-The calculator application uses React hooks to manage the display state and current operation. The UI consists of a grid of buttons including digits 0-9, operation buttons (+, -, ×, ÷), equals (=), and clear (C). When a number is clicked, it's appended to the display. Operation buttons store the current value and operation type. The equals button retrieves the stored values and performs the calculation. The implementation includes error handling for division by zero and invalid operations. The calculator supports chained operations and decimal numbers.
+The calculator application is built using a component-based architecture. The main App.jsx manages state using React hooks (useState) for input and result values. It defines handler functions (updateCalc, calculate, clear, deleteLast) that are passed as props to child components.
+
+\textbf{Component Structure:}
+\begin{itemize}
+    \item \textbf{Display Component:} Receives history and current values as props, displays them in a clean format
+    \item \textbf{ButtonGrid Component:} Receives all handler functions as props, renders calculator buttons in a grid layout
+    \item \textbf{App Component:} Manages state, contains calculation logic, and orchestrates child components
+\end{itemize}
+
+The calculator uses eval() for expression evaluation, includes error handling for division by zero, and features a modern glassmorphism UI design with smooth animations.
 
 \subsection{OUTPUT}
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.8\textwidth]{example-image}}
+    \fbox{\includegraphics[width=0.8\textwidth]{ass_04.png}}
     \caption{Calculator Program Interface}
 \end{figure}
 
@@ -543,7 +564,11 @@ Implement a Calculator Program with Game Concept for Kids using ReactJS. Create 
 \begin{tabular}{|p{5cm}|p{9cm}|}
 \hline
 \textbf{FileName} & \textbf{Purpose} \\ \hline
-src/App.jsx & Main game component with math problems, game logic, and calculator features \\ \hline
+src/App.jsx & Main game component managing game state and orchestrating gameplay \\ \hline
+src/components/GameMenu.jsx & Start screen component with game introduction \\ \hline
+src/components/GamePlay.jsx & Active gameplay component with math problems \\ \hline
+src/components/GameOver.jsx & End screen showing final score and replay option \\ \hline
+src/components/Asteroid.jsx & Individual asteroid component with math problem \\ \hline
 src/App.css & Kid-friendly styling with colorful design, animations, and game elements \\ \hline
 src/main.jsx & Application entry point and game initialization \\ \hline
 package.json & Dependencies including React, Lucide icons for game UI \\ \hline
@@ -665,19 +690,19 @@ The game generates math problems dynamically based on the current level, with di
 \subsection{OUTPUT}
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.9\textwidth]{example-image-a}}
+    \fbox{\includegraphics[width=0.9\textwidth]{ass05_a.png}}
     \caption{Space Math Adventure - Main Menu}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.9\textwidth]{example-image-b}}
+    \fbox{\includegraphics[width=0.9\textwidth]{ass05_b.png}}
     \caption{Space Math Adventure - Gameplay Screen}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=0.9\textwidth]{example-image-c}}
+    \fbox{\includegraphics[width=0.9\textwidth]{ass05_c.png}}
     \caption{Space Math Adventure - Game Over Screen}
 \end{figure}
 
@@ -698,12 +723,15 @@ The game generates math problems dynamically based on the current level, with di
 This lab manual covers five comprehensive ReactJS exercises that demonstrate:
 
 \begin{itemize}
-    \item \textbf{Fundamental Concepts:} State management, event handling, component lifecycle
-    \item \textbf{Mathematical Operations:} Armstrong numbers, natural numbers, comparisons
+    \item \textbf{Component Architecture:} Modular design with reusable React components
+    \item \textbf{State Management:} Using React Hooks (useState, useEffect, useRef)
+    \item \textbf{Props and Data Flow:} Passing data and functions between components
+    \item \textbf{Mathematical Operations:} Factorial, Fibonacci, Prime numbers, digit calculations
     \item \textbf{Business Logic:} Salary calculations, tax computations, bonus determination
-    \item \textbf{Game Development:} Interactive gameplay, animation, collision detection
-    \item \textbf{UI/UX Design:} Responsive layouts, modern styling, user interactions
-    \item \textbf{Best Practices:} Code organization, component reusability, performance optimization
+    \item \textbf{Interactive Applications:} Calculator with real-time evaluation
+    \item \textbf{Game Development:} Educational game with gameplay, animation, collision detection
+    \item \textbf{UI/UX Design:} Modern styling with Tailwind CSS and custom designs
+    \item \textbf{Best Practices:} Component composition, separation of concerns, code reusability
 \end{itemize}
 
 All projects are deployed on Netlify and available on GitHub for review and further development.

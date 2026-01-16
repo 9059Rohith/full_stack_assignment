@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Rocket } from 'lucide-react';
+import { Rocket, Trophy } from 'lucide-react';
 import MenuScreen from './components/MenuScreen';
 import GameHeader from './components/GameHeader';
 import ProblemDisplay from './components/ProblemDisplay';
