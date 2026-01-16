@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import NumberInput from './components/NumberInput';
+import SumResult from './components/SumResult';
+import DigitDisplay from './components/DigitDisplay';
 
 export default function App() {
   const [num, setNum] = useState("");
   const [sum, setSum] = useState(0);
+  const [digits, setDigits] = useState([]);
 
   const calculateSum = (value) => {
-    const digits = value.replace(/\D/g, '');
-    const total = digits
-      .split('')
-      .reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+    const cleanDigits = value.replace(/\D/g, '');
+    const digitArray = cleanDigits.split('');
+    const total = digitArray.reduce((acc, digit) => acc + parseInt(digit, 10), 0);
     
     setSum(total);
     setNum(value);
+    setDigits(digitArray);
   };
 
   return (
@@ -118,32 +122,50 @@ export default function App() {
           font-size: 1.1rem;
           opacity: 0.8;
         }
+
+        .digit-breakdown {
+          margin-top: 2rem;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .breakdown-title {
+          font-size: 0.9rem;
+          opacity: 0.9;
+          margin-bottom: 1rem;
+        }
+
+        .digits-grid {
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .digit-card {
+          background: rgba(255, 255, 255, 0.2);
+          padding: 12px 16px;
+          border-radius: 10px;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        .celebration {
+          margin-top: 1rem;
+          font-size: 2rem;
+        }
       `}</style>
 
       <div className="glass-card">
-        <h1>Digit Sum</h1>
+        <h1>✨ Digit Sum Calculator</h1>
         
-        <div className="input-container">
-          <span className="label">Enter a Number</span>
-          <input
-            type="number"
-            placeholder="0"
-            value={num}
-            onChange={(e) => calculateSum(e.target.value)}
-            autoFocus
-          />
-        </div>
+        <NumberInput value={num} onChange={calculateSum} />
 
-        <div className="result-section">
-          {num ? (
-            <>
-              <span className="label">Total Sum</span>
-              <p className="sum-result">{sum}</p>
-            </>
-          ) : (
-            <p className="instruction">Type to start calculating</p>
-          )}
-        </div>
+        <SumResult sum={sum} show={!!num} />
+        
+        {!num && <p className="instruction">Type a number to see the magic!</p>}
+        
+        <DigitDisplay digits={digits} />
       </div>
     </div>
   );

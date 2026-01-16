@@ -1,40 +1,23 @@
 import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import TabBar from './components/TabBar';
+import Factorial from './components/Factorial';
+import Fibonacci from './components/Fibonacci';
+import Prime from './components/Prime';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('factorial');
   const [input, setInput] = useState('');
   const [result, setResult] = useState(null);
 
-  const calculateFactorial = (n) => {
-    if (n < 0) return "Error: Negative";
-    if (n > 170) return "Infinity";
-    let res = 1;
-    for (let i = 2; i <= n; i++) res *= i;
-    return res.toLocaleString();
-  };
-
-  const generateFibonacci = (n) => {
-    if (n <= 0) return "Enter positive integer";
-    let series = [0, 1];
-    if (n === 1) return "0";
-    for (let i = 2; i < n; i++) series.push(series[i - 1] + series[i - 2]);
-    return series.slice(0, n).join(' → ');
-  };
-
-  const checkPrime = (n) => {
-    if (n <= 1) return "❌ Not Prime";
-    for (let i = 2; i <= Math.sqrt(n); i++) {
-      if (n % i === 0) return `❌ Not Prime`;
+  const renderActiveComponent = () => {
+    const props = { input, setInput, result, setResult };
+    switch (activeTab) {
+      case 'factorial': return <Factorial {...props} />;
+      case 'fibonacci': return <Fibonacci {...props} />;
+      case 'prime': return <Prime {...props} />;
+      default: return <Factorial {...props} />;
     }
-    return "✅ Prime Number";
-  };
-
-  const handleCalculate = () => {
-    const num = parseFloat(input);
-    if (isNaN(num)) return setResult("Invalid input");
-    if (activeTab === 'factorial') setResult(calculateFactorial(num));
-    if (activeTab === 'fibonacci') setResult(generateFibonacci(num));
-    if (activeTab === 'prime') setResult(checkPrime(num));
   };
 
   const styles = {
@@ -138,59 +121,21 @@ const App = () => {
 
   return (
     <div style={styles.pageWrapper}>
-      <nav style={styles.navbar}>
-        <h1 style={{ color: '#4f46e5', margin: 0 }}>MathPro</h1>
-        <div style={{ display: 'flex', gap: '30px', color: '#64748b', fontWeight: '600' }}>
-          <span>Tools</span>
-          <span>Contact</span>
-        </div>
-      </nav>
-
+      <Navbar />
       <div style={styles.mainLayout}>
-        {/* Left Side: Calculator */}
         <section style={styles.card}>
-          <h2 style={{ marginTop: 0, marginBottom: '25px', fontSize: '28px' }}>Calculator</h2>
-          <div style={styles.tabBar}>
-            {['factorial', 'fibonacci', 'prime'].map((t) => (
-              <button 
-                key={t}
-                style={styles.tabBtn(activeTab === t)} 
-                onClick={() => {setActiveTab(t); setResult(null);}}
-              >
-                {t.charAt(0).toUpperCase() + t.slice(1)}
-              </button>
-            ))}
-          </div>
-
-          <input 
-            style={styles.input}
-            type="number" 
-            placeholder={activeTab === 'fibonacci' ? "Number of terms..." : "Enter a number..."} 
-            value={input} 
-            onChange={(e) => setInput(e.target.value)}
-          />
-          
-          <button style={styles.calcBtn} onClick={handleCalculate}>Calculate Now</button>
-
-          {result !== null && (
-            <div style={styles.resultBox}>
-              <small style={{ color: '#4f46e5', fontWeight: '800', letterSpacing: '1px' }}>RESULT</small>
-              <div style={{ fontSize: '22px', fontWeight: '600', marginTop: '5px', wordBreak: 'break-all' }}>{result}</div>
-            </div>
-          )}
+          <TabBar activeTab={activeTab} setActiveTab={(tab) => { setActiveTab(tab); setResult(null); setInput(''); }} />
+          {renderActiveComponent()}
         </section>
-
-        {/* Right Side: Author Card */}
         <section style={styles.card}>
-          <div style={styles.avatar}>JD</div>
-          <h2 style={{ marginTop: 0, marginBottom: '10px' }}>The Developer</h2>
+          <div style={styles.avatar}>RD</div>
+          <h2 style={{ marginTop: 0, marginBottom: '10px' }}>Math Operations Hub</h2>
           <p style={{ color: '#64748b', fontSize: '18px', lineHeight: '1.6', margin: 0 }}>
-            Specializing in high-performance React applications. This toolkit is designed to provide 
-            instant mathematical results with a clean, user-friendly interface.
+            Perform mathematical operations efficiently. Calculate factorials, generate Fibonacci series, and check prime numbers with ease.
           </p>
           <div style={{ marginTop: '30px', display: 'flex', gap: '15px' }}>
-            <span style={{ padding: '8px 16px', background: '#f1f5f9', borderRadius: '30px', fontSize: '14px', fontWeight: '600' }}>Engineer</span>
-            <span style={{ padding: '8px 16px', background: '#f1f5f9', borderRadius: '30px', fontSize: '14px', fontWeight: '600' }}>Creator</span>
+            <span style={{ padding: '8px 16px', background: '#f1f5f9', borderRadius: '30px', fontSize: '14px', fontWeight: '600' }}>ReactJS</span>
+            <span style={{ padding: '8px 16px', background: '#f1f5f9', borderRadius: '30px', fontSize: '14px', fontWeight: '600' }}>Mathematics</span>
           </div>
         </section>
       </div>

@@ -1,0 +1,737 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Full Stack Frameworks}
+\lhead{23CSE461}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge\bfseries FULL STACK FRAMEWORKS\\}
+    \vspace{0.5cm}
+    {\Large 23CSE461\\}
+    \vspace{2cm}
+    
+    {\Large\bfseries LAB MANUAL\\}
+    \vspace{3cm}
+    
+    \begin{tabular}{ll}
+        \textbf{Roll No:} & 9059Rohith \\[0.3cm]
+        \textbf{Name:} & Rohith \\[0.3cm]
+        \textbf{Github URL:} & \href{https://github.com/9059Rohith/full_stack_assignment}{github.com/9059Rohith/full\_stack\_assignment} \\
+    \end{tabular}
+    
+    \vfill
+    
+    {\large Department of Computer Science and Engineering\\}
+    {\large \today\\}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Course Information}
+
+\subsection{23CSE461 - FULL STACK FRAMEWORKS}
+
+\subsubsection{Unit I - React JS}
+Creating and using components, bindings, props, states, events, Working with components, Conditional rendering, Building forms, Getting data from RESTful APIs, Routing, CRUD with Firebase, Redux, React and Redux, Function vs. class based components, Hooks.
+
+\subsubsection{Unit II - Express JS}
+Node JS -- Basics, setup, console, command utilities, modules, events, Express JS -- Routing, HTTP methods, CSS, Bootstrap, JavaScript, React, Redux, Node, Express, URL building, Templates, Static files, Form data, Database, Cookies, Sessions, Authentication, RESTful APIs, Scaffolding, Error handling, Debugging.
+
+\subsubsection{Unit III - Mongo DB}
+Mongo DB ecosystem, Importing and Exporting data, Mongo query language, Updating documents, Aggregation framework, System and user generated variables, Schema validation, Data modelling, Indexing, Performance.
+
+\subsection{Objectives and Outcomes}
+
+\subsubsection{Course Objectives}
+\begin{itemize}
+    \item Web development has become easier with the introduction of frameworks.
+    \item It has also paved the way for full stack web development.
+    \item Full-stack developers use frameworks to develop, optimize and maintain websites and other web applications.
+    \item This course covers some of the important full stack frameworks.
+\end{itemize}
+
+\subsubsection{Course Outcomes}
+\begin{itemize}
+    \item \textbf{CO1:} Learn how to develop single page applications (SPAs) efficiently using front-end framework.
+    \item \textbf{CO2:} Learn to use backend frameworks to develop web and mobile applications robustly.
+    \item \textbf{CO3:} Learn to build highly available and scalable internet applications using document databases.
+    \item \textbf{CO4:} Design and develop full stack web projects using front-end, back-end and database frameworks.
+\end{itemize}
+
+\subsection{Reference Documentation URLs}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Technology} & \textbf{Documentation URL} \\ \hline
+ReactJS & \href{https://react.dev/}{https://react.dev/} \\ \hline
+NodeJS & \href{https://nodejs.org/docs/}{https://nodejs.org/docs/} \\ \hline
+MongoDB & \href{https://docs.mongodb.com/}{https://docs.mongodb.com/} \\ \hline
+ExpressJS & \href{https://expressjs.com/}{https://expressjs.com/} \\ \hline
+JavaScript & \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript}{MDN JavaScript} \\ \hline
+HTML & \href{https://developer.mozilla.org/en-US/docs/Web/HTML}{MDN HTML} \\ \hline
+Responsive HTML & \href{https://web.dev/responsive-web-design-basics/}{Web.dev Responsive} \\ \hline
+CSS & \href{https://developer.mozilla.org/en-US/docs/Web/CSS}{MDN CSS} \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\section{List of Exercises}
+
+\begin{longtable}{|c|c|p{8cm}|c|}
+\hline
+\textbf{Sl.No} & \textbf{Ex.No.} & \textbf{Title of the Experiments} & \textbf{Page No.} \\ \hline
+\endfirsthead
+
+\hline
+\textbf{Sl.No} & \textbf{Ex.No.} & \textbf{Title of the Experiments} & \textbf{Page No.} \\ \hline
+\endhead
+
+1 & 1 & Factorial, Fibonacci Series, and Prime Number Checker & \pageref{ex1} \\ \hline
+2 & 2 & Sum of Digits Calculator & \pageref{ex2} \\ \hline
+3 & 3 & Employee Tax Calculator (Class \& Function Components) & \pageref{ex3} \\ \hline
+4 & 4 & Calculator Program & \pageref{ex4} \\ \hline
+5 & 5 & Calculator with Math Game for Kids & \pageref{ex5} \\ \hline
+\end{longtable}
+
+\newpage
+
+% ============ EXERCISE 1 ============
+\section{EXERCISE NO: 1}
+\label{ex1}
+
+\subsection{AIM}
+To implement a ReactJS application that performs the following operations:
+\begin{itemize}
+    \item Calculate factorial of a number
+    \item Generate Fibonacci series up to N terms
+    \item Check whether a given number is prime or not
+\end{itemize}
+
+\subsection{GitHub Repository}
+\href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_01/ass_01}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_01/ass\_01}
+
+\subsection{Live Deployment}
+\href{https://shimmering-brioche-55d13f.netlify.app/}{https://shimmering-brioche-55d13f.netlify.app/}
+
+\subsection{LIST OF FILE NAMES WITH ITS PURPOSE}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{FileName} & \textbf{Purpose} \\ \hline
+src/App.jsx & Main React component with factorial, fibonacci, and prime number checking logic \\ \hline
+src/App.css & Modern styling with tabs/sections for different mathematical operations \\ \hline
+src/main.jsx & Entry point of the React application \\ \hline
+vite.config.js & Vite configuration file for build and development \\ \hline
+package.json & Project dependencies and scripts configuration \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{CONCEPTS USED IN THE APPLICATION}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
+\hline
+\textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+React Hooks (useState) & Managing state for input numbers and calculation results & App.jsx \\ \hline
+Recursive Functions & Calculating factorial using recursion & App.jsx \\ \hline
+Loop Iterations & Generating Fibonacci series & App.jsx \\ \hline
+Prime Number Algorithm & Checking divisibility for prime detection & App.jsx \\ \hline
+Conditional Rendering & Displaying results based on operation selected & App.jsx \\ \hline
+CSS Grid/Flexbox & Multi-section responsive layout & App.css \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{ALGORITHM}
+
+\subsubsection{Factorial Calculation}
+\begin{enumerate}
+    \item Accept a number N from user
+    \item Validate N is a non-negative integer
+    \item Initialize result = 1
+    \item For i from 1 to N: result = result × i
+    \item Display the factorial value
+    \item Alternative: Use recursive approach - factorial(n) = n × factorial(n-1)
+\end{enumerate}
+
+\subsubsection{Fibonacci Series}
+\begin{enumerate}
+    \item Accept number of terms N from user
+    \item Initialize first two terms: a = 0, b = 1
+    \item Display first term (0) and second term (1)
+    \item For i from 3 to N:
+    \begin{itemize}
+        \item Calculate next term: c = a + b
+        \item Display c
+        \item Update: a = b, b = c
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Prime Number Check}
+\begin{enumerate}
+    \item Accept a number N from user
+    \item If N ≤ 1, return "Not Prime"
+    \item If N = 2, return "Prime"
+    \item For i from 2 to √N:
+    \begin{itemize}
+        \item If N \% i = 0, return "Not Prime"
+    \end{itemize}
+    \item Return "Prime"
+\end{enumerate}
+
+\subsection{CODE EXPLANATION}
+The application implements three mathematical operations in a single React component. For factorial calculation, both iterative and recursive methods are used. The Fibonacci series is generated using a loop that maintains the last two numbers and calculates subsequent terms. Prime number checking uses trial division up to the square root of the number for efficiency. The UI features tabs or sections to switch between different operations, with input validation to ensure valid numerical input.
+
+\subsection{OUTPUT}
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{example-image-a}}
+    \caption{Mathematical Operations Application - Factorial, Fibonacci, Prime}
+\end{figure}
+
+\textbf{Test Cases:}
+\begin{itemize}
+    \item \textbf{Factorial:} Input: 5 → Output: 120 (5! = 5×4×3×2×1)
+    \item \textbf{Fibonacci:} Input: 7 → Output: 0, 1, 1, 2, 3, 5, 8
+    \item \textbf{Prime:} Input: 17 → Output: Prime Number
+    \item \textbf{Prime:} Input: 18 → Output: Not a Prime Number
+\end{itemize}
+
+\newpage
+
+% ============ EXERCISE 2 ============
+\section{EXERCISE NO: 2}
+\label{ex2}
+
+\subsection{AIM}
+To create a ReactJS application that reads a number from the user and calculates the sum of its digits.
+
+\subsection{GitHub Repository}
+\href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_02/ass_02}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_02/ass\_02}
+
+\subsection{Live Deployment}
+\href{https://melodious-crostata-e74b46.netlify.app/}{https://melodious-crostata-e74b46.netlify.app/}
+
+\subsection{LIST OF FILE NAMES WITH ITS PURPOSE}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{FileName} & \textbf{Purpose} \\ \hline
+src/App.jsx & Main component with digit sum calculation logic and UI \\ \hline
+src/App.css & Styling for the sum of digits calculator with modern design \\ \hline
+src/main.jsx & React application entry point with root rendering \\ \hline
+vite.config.js & Vite configuration for development and production \\ \hline
+package.json & Dependencies including React, Vite, and development tools \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{CONCEPTS USED IN THE APPLICATION}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
+\hline
+\textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+React useState Hook & Managing input number and sum result state & App.jsx \\ \hline
+String Manipulation & Converting number to individual digits & App.jsx \\ \hline
+Array Methods & Using split(), map(), and reduce() for calculation & App.jsx \\ \hline
+Conditional Rendering & Showing result based on calculation & App.jsx \\ \hline
+Event Handlers & Handling button clicks and input changes & App.jsx \\ \hline
+CSS Animations & Smooth transitions and hover effects & App.css \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{ALGORITHM}
+\begin{enumerate}
+    \item Accept a number from the user
+    \item Convert the number to a string to access individual digits
+    \item Split the string into an array of digit characters
+    \item Initialize sum variable to 0
+    \item For each digit character:
+    \begin{itemize}
+        \item Convert the character to an integer
+        \item Add the integer value to sum
+    \end{itemize}
+    \item Display the sum of all digits
+    \item Show the breakdown of individual digits
+\end{enumerate}
+
+\subsection{CODE EXPLANATION}
+The application takes a number as input and calculates the sum of all its digits. It converts the number to a string using toString(), then splits it into an array of individual digit characters. Using the reduce() method or a simple loop, each digit is converted to a number and added to the running sum. The result displays both the individual digits and their total sum. For example, for input 12345, the output would show: 1 + 2 + 3 + 4 + 5 = 15.
+
+\subsection{OUTPUT}
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{example-image-b}}
+    \caption{Sum of Digits Calculator Application}
+\end{figure}
+
+\textbf{Test Cases:}
+\begin{itemize}
+    \item Input: 12345 → Output: Sum = 15 (1 + 2 + 3 + 4 + 5)
+    \item Input: 999 → Output: Sum = 27 (9 + 9 + 9)
+    \item Input: 1024 → Output: Sum = 7 (1 + 0 + 2 + 4)
+    \item Input: 87654 → Output: Sum = 30 (8 + 7 + 6 + 5 + 4)
+\end{itemize}
+
+\newpage
+
+% ============ EXERCISE 3 ============
+\section{EXERCISE NO: 3}
+\label{ex3}
+
+\subsection{AIM}
+Design an Employee Tax Calculator using ReactJS to calculate salary components (DA, HRA, Special Allowance), determine employee grade based on total salary, and compute bonus based on the grade. Implement the application using both Class Component and Function Component approaches (Set-1 for odd roll numbers, Set-2 for even roll numbers).
+
+\subsection{GitHub Repository}
+\href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_03}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_03}
+
+\subsection{Live Deployment}
+\href{https://dashing-sfogliatella-6fc394.netlify.app/}{https://dashing-sfogliatella-6fc394.netlify.app/}
+
+\subsection{LIST OF FILE NAMES WITH ITS PURPOSE}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{FileName} & \textbf{Purpose} \\ \hline
+src/App.jsx & Main component with salary calculator (Function Component approach) \\ \hline
+src/ClassComponent.jsx & Alternative implementation using Class Component (if applicable) \\ \hline
+src/App.css & Comprehensive styling with gradient backgrounds and modern UI \\ \hline
+src/main.jsx & Application entry point with React 18 features \\ \hline
+src/index.css & Global styles and Tailwind CSS imports \\ \hline
+package.json & Dependencies including React, Lucide icons, and Tailwind CSS \\ \hline
+tailwind.config.js & Tailwind CSS configuration for custom styling \\ \hline
+vite.config.js & Vite configuration with React plugin \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{CONCEPTS USED IN THE APPLICATION}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
+\hline
+\textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+React State Management & Managing basic pay, grade, and bonus states & App.jsx \\ \hline
+Computed Properties & Auto-calculating DA, HRA, Special Allowance & App.jsx \\ \hline
+Conditional Rendering & Showing grade and bonus sections dynamically & App.jsx \\ \hline
+Event Handlers & Check Grade and Check Bonus button functions & App.jsx \\ \hline
+Lucide React Icons & Professional icons for UI enhancement & App.jsx \\ \hline
+Tailwind CSS & Utility-first CSS for rapid UI development & App.jsx, index.css \\ \hline
+Input Validation & Ensuring positive numbers only & App.jsx \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{ALGORITHM}
+
+\subsubsection{Salary Calculation}
+\begin{enumerate}
+    \item Accept Basic Pay from user
+    \item Calculate DA = Basic Pay × 30\%
+    \item Calculate HRA = Basic Pay × 10\%
+    \item Calculate Special Allowance = Basic Pay × 5\%
+    \item Total Salary = Basic Pay + DA + HRA + Special Allowance
+    \item Display all components in breakdown format
+\end{enumerate}
+
+\subsubsection{Grade Determination}
+\begin{enumerate}
+    \item Check Total Salary range:
+    \begin{itemize}
+        \item If 10,000 - 20,000: Grade = A
+        \item If 20,001 - 30,000: Grade = B
+        \item If 30,001 - 40,000: Grade = C
+        \item If > 40,000: Grade = EXC
+    \end{itemize}
+    \item Display the grade with visual styling
+\end{enumerate}
+
+\subsubsection{Bonus Calculation}
+\begin{enumerate}
+    \item Check employee grade:
+    \begin{itemize}
+        \item Grade A: Bonus = Basic Pay × 15\%
+        \item Grade B: Bonus = Basic Pay × 12\%
+        \item Grade C: Bonus = Basic Pay × 6\%
+        \item Grade EXC: Bonus = Basic Pay × 5\%
+    \end{itemize}
+    \item Display bonus amount with percentage information
+\end{enumerate}
+
+\subsection{CODE EXPLANATION}
+The application is implemented using Function Components with React Hooks (useState for state management). The salary components are calculated using a computed function that runs on every render when basicPay changes. The grade is determined by the checkGrade function which evaluates the total salary against predefined ranges. The bonus is calculated based on the grade using a switch statement that applies different percentage rates.
+
+\textbf{Function Component Approach:} Uses useState hook for managing state (basicPay, grade, bonus) and functional programming patterns for calculations.
+
+\textbf{Class Component Approach (Alternative):} Would use this.state and this.setState() for state management, with lifecycle methods like componentDidMount() if needed.
+
+The UI is built with Tailwind CSS for responsive design and includes professional icons from Lucide React. Input validation prevents negative numbers and non-numeric inputs. The application features smooth animations and gradient backgrounds for an enhanced user experience.
+
+\subsection{SALARY BREAKDOWN FORMULA}
+\begin{itemize}
+    \item \textbf{DA (Dearness Allowance)} = Basic Pay × 0.30
+    \item \textbf{HRA (House Rent Allowance)} = Basic Pay × 0.10
+    \item \textbf{Special Allowance} = Basic Pay × 0.05
+    \item \textbf{Total Salary} = Basic Pay + DA + HRA + Special Allowance
+    \item \textbf{Total Salary} = Basic Pay × (1 + 0.30 + 0.10 + 0.05) = Basic Pay × 1.45
+\end{itemize}
+
+\subsection{OUTPUT}
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{example-image-c}}
+    \caption{Employee Tax Calculator - Main Interface}
+\end{figure}
+
+\textbf{Example Calculation:}
+\begin{itemize}
+    \item Basic Pay: ₹25,000
+    \item DA (30\%): ₹7,500
+    \item HRA (10\%): ₹2,500
+    \item Special Allowance (5\%): ₹1,250
+    \item Total Salary: ₹36,250
+    \item Grade: C (30,001 - 40,000 range)
+    \item Bonus (6\%): ₹1,500
+\end{itemize}
+
+\newpage
+
+% ============ EXERCISE 4 ============
+\section{EXERCISE NO: 4}
+\label{ex4}
+
+\subsection{AIM}
+To implement a Calculator Program using ReactJS that performs basic arithmetic operations (Addition, Subtraction, Multiplication, Division) with an interactive and user-friendly interface.
+
+\subsection{GitHub Repository}
+\href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_04/ass_04}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_04/ass\_04}
+
+\subsection{Live Deployment}
+\href{https://stellular-parfait-78b8bd.netlify.app/}{https://stellular-parfait-78b8bd.netlify.app/}
+
+\subsection{LIST OF FILE NAMES WITH ITS PURPOSE}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{FileName} & \textbf{Purpose} \\ \hline
+src/App.jsx & Main component with calculator logic and operations handling \\ \hline
+src/App.css & Modern calculator styling with button grid and display screen \\ \hline
+src/main.jsx & React application bootstrap and rendering \\ \hline
+vite.config.js & Build configuration for Vite bundler \\ \hline
+package.json & Project metadata and dependencies \\ \hline
+index.html & Root HTML file with app container \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{CONCEPTS USED IN THE APPLICATION}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
+\hline
+\textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+React useState Hook & Managing calculator display and operation state & App.jsx \\ \hline
+Event Handlers & Handling button clicks for numbers and operations & App.jsx \\ \hline
+Arithmetic Operations & Performing +, -, ×, ÷ calculations & App.jsx \\ \hline
+eval() or Custom Parser & Evaluating mathematical expressions & App.jsx \\ \hline
+Conditional Rendering & Displaying results and handling errors & App.jsx \\ \hline
+CSS Grid Layout & Creating calculator button layout & App.css \\ \hline
+Error Handling & Managing division by zero and invalid operations & App.jsx \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{ALGORITHM}
+\begin{enumerate}
+    \item Initialize state variables for display value and current operation
+    \item Create calculator UI with number buttons (0-9) and operation buttons (+, -, ×, ÷)
+    \item When number button clicked:
+    \begin{itemize}
+        \item Append digit to display
+        \item Update display state
+    \end{itemize}
+    \item When operation button clicked:
+    \begin{itemize}
+        \item Store current value and operation
+        \item Clear display for next input
+    \end{itemize}
+    \item When equals button clicked:
+    \begin{itemize}
+        \item Retrieve stored value and operation
+        \item Perform calculation based on operation
+        \item Display result
+    \end{itemize}
+    \item Include Clear (C) button to reset calculator
+    \item Handle errors (division by zero, invalid expressions)
+    \item Support decimal numbers and negative values
+\end{enumerate}
+
+\subsection{CALCULATOR OPERATIONS}
+\begin{itemize}
+    \item \textbf{Addition:} result = operand1 + operand2
+    \item \textbf{Subtraction:} result = operand1 - operand2
+    \item \textbf{Multiplication:} result = operand1 × operand2
+    \item \textbf{Division:} result = operand1 ÷ operand2 (check for zero)
+\end{itemize}
+
+\subsection{CODE EXPLANATION}
+The calculator application uses React hooks to manage the display state and current operation. The UI consists of a grid of buttons including digits 0-9, operation buttons (+, -, ×, ÷), equals (=), and clear (C). When a number is clicked, it's appended to the display. Operation buttons store the current value and operation type. The equals button retrieves the stored values and performs the calculation. The implementation includes error handling for division by zero and invalid operations. The calculator supports chained operations and decimal numbers.
+
+\subsection{OUTPUT}
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{example-image}}
+    \caption{Calculator Program Interface}
+\end{figure}
+
+\textbf{Test Cases:}
+\begin{itemize}
+    \item Input: 15 + 25 → Output: 40
+    \item Input: 100 - 35 → Output: 65
+    \item Input: 12 × 8 → Output: 96
+    \item Input: 144 ÷ 12 → Output: 12
+    \item Input: 10 ÷ 0 → Output: Error (Division by zero)
+\end{itemize}
+
+\newpage
+
+% ============ EXERCISE 5 ============
+\section{EXERCISE NO: 5}
+\label{ex5}
+
+\subsection{AIM}
+Implement a Calculator Program with Game Concept for Kids using ReactJS. Create an interactive educational game where children solve math problems through a fun gaming interface, combining calculator functionality with engaging gameplay elements.
+
+\subsection{GitHub Repository}
+\href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_05/ass_05}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_05/ass\_05}
+
+\subsection{Live Deployment}
+\href{https://chic-palmier-4d509b.netlify.app/}{https://chic-palmier-4d509b.netlify.app/}
+
+\subsection{LIST OF FILE NAMES WITH ITS PURPOSE}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{9cm}|}
+\hline
+\textbf{FileName} & \textbf{Purpose} \\ \hline
+src/App.jsx & Main game component with math problems, game logic, and calculator features \\ \hline
+src/App.css & Kid-friendly styling with colorful design, animations, and game elements \\ \hline
+src/main.jsx & Application entry point and game initialization \\ \hline
+package.json & Dependencies including React, Lucide icons for game UI \\ \hline
+vite.config.js & Development server and build configuration \\ \hline
+index.html & Root HTML with game container and meta tags \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{CONCEPTS USED IN THE APPLICATION}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{4cm}|}
+\hline
+\textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
+React useState Hook & Managing game state, score, lives, level & App.jsx \\ \hline
+React useEffect Hook & Game loop, asteroid generation, collision detection & App.jsx \\ \hline
+React useRef Hook & Managing game loop and input focus & App.jsx \\ \hline
+Math.random() & Generating random math problems & App.jsx \\ \hline
+setInterval/clearInterval & Game loop timing and animation & App.jsx \\ \hline
+Array Methods & Managing asteroids and particles arrays & App.jsx \\ \hline
+Conditional Rendering & Different screens (menu, playing, game over) & App.jsx \\ \hline
+CSS Animations & Asteroid movement, explosions, particles & App.css \\ \hline
+Event Handling & Keyboard input for answers & App.jsx \\ \hline
+Game State Machine & Managing game flow and transitions & App.jsx \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{GAME MECHANICS}
+
+\subsubsection{Core Features}
+\begin{itemize}
+    \item \textbf{Math Problems:} Addition problems with increasing difficulty
+    \item \textbf{Lives System:} Player starts with 3 lives
+    \item \textbf{Level Progression:} Difficulty increases with each level
+    \item \textbf{Combo System:} Consecutive correct answers increase multiplier
+    \item \textbf{Particle Effects:} Visual feedback for correct/incorrect answers
+    \item \textbf{Score System:} Points awarded based on speed and accuracy
+\end{itemize}
+
+\subsubsection{Problem Generation}
+\begin{enumerate}
+    \item Calculate maximum number based on level: maxNum = min(10 + level × 5, 50)
+    \item Generate two random numbers between 1 and maxNum
+    \item Create addition problem: num1 + num2
+    \item Store correct answer for validation
+\end{enumerate}
+
+\subsection{ALGORITHM}
+
+\subsubsection{Game Initialization}
+\begin{enumerate}
+    \item Set initial game state: menu
+    \item Initialize score = 0, level = 1, lives = 3
+    \item Prepare first math problem
+\end{enumerate}
+
+\subsubsection{Game Loop}
+\begin{enumerate}
+    \item Generate asteroids at random intervals
+    \item Move asteroids across screen
+    \item Check for user answer submission
+    \item If answer correct:
+    \begin{itemize}
+        \item Increase score
+        \item Increment combo
+        \item Destroy asteroid with explosion effect
+        \item Generate new problem
+    \end{itemize}
+    \item If answer incorrect or asteroid reaches end:
+    \begin{itemize}
+        \item Decrease lives
+        \item Reset combo
+        \item Check for game over condition
+    \end{itemize}
+    \item Check for level progression (every 10 points)
+    \item Update all game elements
+\end{enumerate}
+
+\subsubsection{Collision Detection}
+\begin{enumerate}
+    \item Track asteroid positions
+    \item Check if asteroid reaches rocket position
+    \item If collision and wrong answer: lose life
+    \item If correct answer before collision: destroy asteroid
+\end{enumerate}
+
+\subsection{SCORING SYSTEM}
+\begin{itemize}
+    \item \textbf{Base Score:} 10 points per correct answer
+    \item \textbf{Combo Multiplier:} Additional points for consecutive answers
+    \item \textbf{Level Bonus:} Harder problems give more points
+    \item \textbf{Speed Bonus:} Faster answers earn extra points
+\end{itemize}
+
+\subsection{CODE EXPLANATION}
+The Space Math Adventure game is a complex React application that combines educational content with engaging gameplay. It uses multiple React hooks for state management:
+
+\begin{itemize}
+    \item \textbf{useState:} Manages game state (menu/playing/gameOver), score, lives, level, current problem, user answer, asteroids array, combo counter
+    \item \textbf{useEffect:} Implements the game loop with setInterval, handles asteroid spawning, movement, and collision detection
+    \item \textbf{useRef:} Maintains reference to the game loop interval and input field for automatic focus
+\end{itemize}
+
+The game generates math problems dynamically based on the current level, with difficulty scaling. Asteroids are rendered as objects with position, speed, and problem data. The particle system creates visual explosions using CSS animations when asteroids are destroyed. The application demonstrates advanced React patterns including game loop implementation, dynamic rendering, and complex state management.
+
+\subsection{TECHNICAL FEATURES}
+\begin{itemize}
+    \item Responsive design for various screen sizes
+    \item Smooth 60 FPS animations using CSS transforms
+    \item Keyboard input handling for answer submission
+    \item Dynamic difficulty adjustment
+    \item Particle system for visual effects
+    \item Sound-ready architecture (can add audio)
+    \item High score tracking capability
+    \item Pause/Resume functionality
+\end{itemize}
+
+\subsection{OUTPUT}
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{example-image-a}}
+    \caption{Space Math Adventure - Main Menu}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{example-image-b}}
+    \caption{Space Math Adventure - Gameplay Screen}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{example-image-c}}
+    \caption{Space Math Adventure - Game Over Screen}
+\end{figure}
+
+\textbf{Game Flow Example:}
+\begin{enumerate}
+    \item Player starts game from menu
+    \item Problem appears: "7 + 5 = ?"
+    \item Player types "12" and submits
+    \item Asteroid explodes, score increases by 10
+    \item New problem: "13 + 8 = ?"
+    \item Continue until lives run out or player quits
+\end{enumerate}
+
+\newpage
+
+\section{Conclusion}
+
+This lab manual covers five comprehensive ReactJS exercises that demonstrate:
+
+\begin{itemize}
+    \item \textbf{Fundamental Concepts:} State management, event handling, component lifecycle
+    \item \textbf{Mathematical Operations:} Armstrong numbers, natural numbers, comparisons
+    \item \textbf{Business Logic:} Salary calculations, tax computations, bonus determination
+    \item \textbf{Game Development:} Interactive gameplay, animation, collision detection
+    \item \textbf{UI/UX Design:} Responsive layouts, modern styling, user interactions
+    \item \textbf{Best Practices:} Code organization, component reusability, performance optimization
+\end{itemize}
+
+All projects are deployed on Netlify and available on GitHub for review and further development.
+
+\subsection{Key Learning Outcomes}
+\begin{enumerate}
+    \item Understanding React component architecture and hooks
+    \item Implementing complex state management strategies
+    \item Creating interactive user interfaces with modern CSS
+    \item Handling user input and form validation
+    \item Building real-world applications with practical use cases
+    \item Deploying React applications to production environments
+\end{enumerate}
+
+\subsection{Future Enhancements}
+\begin{itemize}
+    \item Integration with backend APIs (Express.js)
+    \item Database connectivity (MongoDB)
+    \item User authentication and authorization
+    \item Advanced state management (Redux)
+    \item Progressive Web App (PWA) features
+    \item Testing implementation (Jest, React Testing Library)
+\end{itemize}
+
+\vspace{2cm}
+
+\begin{center}
+\textbf{End of Lab Manual}
+\end{center}
+
+\end{document}

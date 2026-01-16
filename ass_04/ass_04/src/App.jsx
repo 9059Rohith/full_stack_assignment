@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Display from './components/Display';
+import ButtonGrid from './components/ButtonGrid';
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -63,7 +65,6 @@ const App = () => {
           overflow: hidden;
         }
 
-        /* Glass Card */
         .glass-calculator {
           background: rgba(255, 255, 255, 0.03);
           backdrop-filter: blur(20px);
@@ -75,7 +76,6 @@ const App = () => {
           box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
         }
 
-        /* Display */
         .display {
           text-align: right;
           padding: 20px 10px;
@@ -97,41 +97,73 @@ const App = () => {
           letter-spacing: -1px;
         }
 
-        /* Grid Structure */
-        .buttons-grid {
+        .button-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 12px;
         }
 
-        button {
-          height: 68px;
-          border-radius: 20px;
-          border: none;
-          background: rgba(255, 255, 255, 0.05);
-          color: #fff;
-          font-size: 1.25rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .btn-clear, .btn-delete {
+          grid-column: span 2;
         }
 
-        button:hover {
-          background: rgba(255, 255, 255, 0.12);
+        .btn {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(52, 211, 153, 0.15);
+          border-radius: 16px;
+          color: #ffffff;
+          font-size: 1.5rem;
+          padding: 20px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+          background: rgba(52, 211, 153, 0.1);
           transform: translateY(-2px);
         }
 
-        button:active {
+        .btn:active {
           transform: scale(0.95);
         }
 
-        /* Special Styling */
-        .span-2 {
-          grid-column: span 2;
+        .btn-operator {
+          background: rgba(52, 211, 153, 0.15);
+          color: #34d399;
+          font-weight: bold;
         }
+
+        .btn-equals {
+          background: linear-gradient(135deg, #34d399, #10b981);
+          color: white;
+          font-weight: bold;
+        }
+
+        .btn-clear {
+          background: rgba(239, 68, 68, 0.15);
+          color: #ef4444;
+        }
+
+        .btn-delete {
+          background: rgba(251, 191, 36, 0.15);
+          color: #fbbf24;
+        }
+      `}</style>
+
+      <div className="glass-calculator">
+        <Display history={input} current={result} />
+        <ButtonGrid 
+          updateCalc={updateCalc}
+          calculate={calculate}
+          clear={clear}
+          deleteLast={deleteLast}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default App;
 
         .btn-ac {
           background: rgba(255, 95, 82, 0.1);

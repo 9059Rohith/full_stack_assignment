@@ -1,5 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Rocket, Target, Zap, Trophy, Star } from 'lucide-react';
+import { Rocket } from 'lucide-react';
+import MenuScreen from './components/MenuScreen';
+import GameHeader from './components/GameHeader';
+import ProblemDisplay from './components/ProblemDisplay';
+import GameOver from './components/GameOver';
 
 const App = () => {
   const [gameState, setGameState] = useState('menu'); // menu, playing, gameOver
