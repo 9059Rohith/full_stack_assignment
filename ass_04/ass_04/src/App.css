@@ -20,7 +20,7 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 360px;
+  width: 420px;
   padding: 32px;
   border-radius: 40px;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
@@ -103,5 +103,97 @@
 .btn-delete {
   background: rgba(251, 191, 36, 0.15);
   color: #fbbf24;
+}
+
+.mode-toggle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mode-btn {
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 20px;
+  color: #34d399;
+  font-size: 1rem;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.mode-btn:hover {
+  background: rgba(52, 211, 153, 0.25);
+  transform: scale(1.05);
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: white;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.mode-indicator {
+  color: rgba(52, 211, 153, 0.6);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.string-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.string-input-area {
+  grid-column: span 4;
+  margin-bottom: 10px;
+}
+
+.string-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.string-input:focus {
+  border-color: rgba(52, 211, 153, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.string-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.string-functions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.btn-string {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #a78bfa;
+  font-size: 0.85rem;
+  padding: 12px 8px;
+  font-weight: 600;
+}
+
+.btn-string:hover {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+}
+
+.btn-clear, .btn-delete {
+  grid-column: span 1;
 }
 

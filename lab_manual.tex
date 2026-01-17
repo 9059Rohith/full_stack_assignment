@@ -435,7 +435,12 @@ The UI is built with Tailwind CSS for responsive design and includes professiona
 \label{ex4}
 
 \subsection{AIM}
-To implement a Calculator Program using ReactJS that performs basic arithmetic operations (Addition, Subtraction, Multiplication, Division) with an interactive and user-friendly interface.
+To implement a Dual-Mode Calculator Program using ReactJS that performs:
+\begin{itemize}
+    \item Basic arithmetic operations (Addition, Subtraction, Multiplication, Division)
+    \item String manipulation operations (minimum 8 functions)
+    \item Mode toggle between Calculator and String Tools
+\end{itemize}
 
 \subsection{GitHub Repository}
 \href{https://github.com/9059Rohith/full_stack_assignment/tree/main/ass_04/ass_04}{https://github.com/9059Rohith/full\_stack\_assignment/tree/main/ass\_04/ass\_04}
@@ -450,10 +455,10 @@ To implement a Calculator Program using ReactJS that performs basic arithmetic o
 \begin{tabular}{|p{5cm}|p{9cm}|}
 \hline
 \textbf{FileName} & \textbf{Purpose} \\ \hline
-src/App.jsx & Main component managing calculator state and operations logic \\ \hline
-src/components/Display.jsx & Component for displaying calculator history and current value \\ \hline
-src/components/ButtonGrid.jsx & Component containing all calculator buttons with grid layout \\ \hline
-src/App.css & Modern calculator styling with glassmorphism effects \\ \hline
+src/App.jsx & Main component managing dual-mode state (calculator + string tools), 12 string functions, and arithmetic operations logic \\ \hline
+src/components/Display.jsx & Component for displaying mode indicator, input history and current result \\ \hline
+src/components/ButtonGrid.jsx & Component containing calculator buttons OR string manipulation buttons based on mode \\ \hline
+src/App.css & Modern dual-mode styling with glassmorphism effects, mode toggle button, and string function buttons \\ \hline
 src/main.jsx & React application bootstrap and rendering \\ \hline
 vite.config.js & Build configuration for Vite bundler \\ \hline
 package.json & Project metadata and dependencies \\ \hline
@@ -469,21 +474,31 @@ index.html & Root HTML file with app container \\ \hline
 \hline
 \textbf{Concept Name} & \textbf{General Purpose} & \textbf{Code File} \\ \hline
 Component Composition & Separating display and button logic into components & App.jsx \\ \hline
-React useState Hook & Managing calculator display and operation state & App.jsx \\ \hline
-Props & Passing functions and data to child components & App.jsx, Components \\ \hline
-Event Handlers & Handling button clicks for numbers and operations & ButtonGrid.jsx \\ \hline
+React useState Hook & Managing mode (calc/string), display and operation state & App.jsx \\ \hline
+Mode Toggle Pattern & Switching between calculator and string manipulation modes & App.jsx \\ \hline
+Props Drilling & Passing multiple functions and data to child components & App.jsx, Components \\ \hline
+Event Handlers & Handling button clicks for numbers, operations, and string functions & ButtonGrid.jsx \\ \hline
 Arithmetic Operations & Performing +, -, ×, ÷ calculations & App.jsx \\ \hline
+String Methods & toUpperCase, toLowerCase, reverse, trim, replace, split & App.jsx \\ \hline
 eval() Function & Evaluating mathematical expressions & App.jsx \\ \hline
-Conditional Rendering & Displaying results and handling errors & Display.jsx \\ \hline
-CSS Grid Layout & Creating calculator button layout & App.css \\ \hline
+Conditional Rendering & Displaying different button grids based on mode & ButtonGrid.jsx \\ \hline
+CSS Grid Layout & Creating dual layout for calculator and string tools & App.css \\ \hline
 Glassmorphism Design & Modern UI with backdrop blur effects & App.css \\ \hline
 Error Handling & Managing division by zero and invalid operations & App.jsx \\ \hline
+Regular Expressions & Pattern matching for string manipulation (vowels, spaces) & App.jsx \\ \hline
 \end{tabular}
-\end{table}
 
-\subsection{ALGORITHM}
+\subsubsection{Main Application Flow}
 \begin{enumerate}
-    \item Initialize state variables for display value and current operation
+    \item Initialize state: mode = "calc", input = "", result = "0"
+    \item Render mode toggle button (Calculator ↔ String Tools)
+    \item If mode = "calc": Show calculator interface
+    \item If mode = "string": Show string manipulation interface
+    \item Clear input and result when switching modes
+\end{enumerate}
+
+\subsubsection{Calculator Mode Algorithm}
+\begin{enumerate}
     \item Create calculator UI with number buttons (0-9) and operation buttons (+, -, ×, ÷)
     \item When number button clicked:
     \begin{itemize}
@@ -493,14 +508,114 @@ Error Handling & Managing division by zero and invalid operations & App.jsx \\ \
     \item When operation button clicked:
     \begin{itemize}
         \item Store current value and operation
-        \item Clear display for next input
+        \item Continue expression building
     \end{itemize}
     \item When equals button clicked:
     \begin{itemize}
         \item Retrieve stored value and operation
-        \item Perform calculation based on operation
+        \item Perform calculation using eval()
         \item Display result
     \end{itemize}
+    \item Include Clear (C) button to reset calculator
+    \item Han
+
+\subsection{STRING MANIPULATION FUNCTIONS (12 Functions)}
+dual-mode calculator application is built using a component-based architecture with mode switching capability. The main App.jsx manages state using React hooks (useState) for mode, input, and result values.
+
+\textbf{Component Structure:}
+\begin{itemize}
+    \item \textbf{App Component:} 
+    \begin{itemize}
+        \item Manages mode state ("calc" or "string")
+        \item Contains 12+ string manipulation functions
+        \item Contains arithmetic calculation functions
+        \item Handles mode toggle with state reset
+    \end{itemize}
+    \item \textbf{Display Component:} 
+    \begin{itemize}
+        \item Receives mode, history, and current values as props
+        \item Displays mode indicator (Calculator Mode_calc.png}}
+    \caption{Dual-Mode Calculator - Calculator Mode Interface}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{ass_04_string.png}}
+    \caption{Dual-Mode Calculator - String Manipulation Mode Interface}
+\end{figure}
+
+\textbf{Calculator Mode Test Cases:}
+\begin{itemize}
+    \item Input: 15 + 25 → Output: 40
+    \item Input: 100 - 35 → Output: 65
+    \item Input: 12 × 8 → Output: 96 (using eval: 12 * 8)
+    \item Input: 144 ÷ 12 → Output: 12 (using eval: 144 / 12)
+    \item Input: 10 ÷ 0 → Output: Error (Division by zero)
+    \item Input: 5 + 3 * 2 → Output: 11 (order of operations)
+\end{itemize}
+
+\textbf{String Manipulation Test Cases:}
+\begin{itemize}
+    \item Input: "hello world" → UPPER → "HELLO WORLD"
+    \item Input: "REACT APP" → lower → "react app"
+    \item Input: "javascript" → Reverse → "tpircsavaj"
+    \item Input: "hello world" → Length → "Length: 11"
+    \item Input: "  spaces  " → Trim → "spaces"
+    \item Input: "hello" → Capital → "Hello"
+    \item Input: "a b c" → No Space → "abc"
+    \item Input: "hello world test" → Count → "Words: 3"
+    \item Input: "hello world" → Title → "Hello World"
+    \item Input: "beautiful" → *Vowels → "b**t*f*l"
+    \item Input: "testing" → aLtErNaTe → "TeStInG"
+
+\textbf{Key Implementation Details:}
+\begin{itemize}
+    \item Mode toggle clears input/result for clean transition
+    \item Calculator uses eval() for arithmetic expression evaluation
+    \item String functions use native JavaScript methods and regex
+    \item Error handling for division by zero and invalid operations
+    \item Modern glassmorphism UI with distinct styling for each mode
+    \item String function buttons styled differently (purple theme)
+    \item Calculator buttons maintain green theme
+\end{itemize}
+Trim & Remove leading/trailing spaces & "  hi  " → "hi" \\ \hline
+Capital & Capitalize first letter & "hello" → "Hello" \\ \hline
+No Space & Remove all spaces & "a b c" → "abc" \\ \hline
+Count & Count words & "hello world" → "Words: 2" \\ \hline
+Title & Title case each word & "hello world" → "Hello World" \\ \hline
+*Vowels & Replace vowels with * & "hello" → "h*ll*" \\ \hline
+aLtErNaTe & Alternate case pattern & "hello" → "HeLlO" \\ \hline
+Space & Add space character & Adds " " to input \\ \hline
+\end{tabular}
+\end{table}dle errors (division by zero, invalid expressions)
+    \item Support decimal numbers and chaining operations
+\end{enumerate}
+
+\subsubsection{String Manipulation Mode Algorithm}
+\begin{enumerate}
+    \item Display text input area for user to type strings
+    \item Create grid of 12+ string manipulation buttons
+    \item When string function button clicked:
+    \begin{itemize}
+        \item Apply corresponding string operation to input
+        \item Update result display with transformed string
+    \end{itemize}
+    \item String Functions:
+    \begin{itemize}
+        \item UPPER: Convert to uppercase using toUpperCase()
+        \item lower: Convert to lowercase using toLowerCase()
+        \item Reverse: Reverse string using split().reverse().join()
+        \item Length: Display character count using .length
+        \item Trim: Remove spaces using trim()
+        \item Capital: Capitalize first letter
+        \item No Space: Remove all spaces using replace(/\\s+/g, '')
+        \item Count: Count words using split and filter
+        \item Title: Title case each word
+        \item *Vowels: Replace vowels with asterisks using regex
+        \item aLtErNaTe: Alternate uppercase/lowercase
+        \item Space: Add space character
+    \end{itemize}
+    \item Maintain input and allow chaining operation
     \item Include Clear (C) button to reset calculator
     \item Handle errors (division by zero, invalid expressions)
     \item Support decimal numbers and negative values
